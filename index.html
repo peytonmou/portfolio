@@ -1,109 +1,266 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
+
 <head>
-    <meta charset = 'UTF-8'>
-    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
-    <title>my portfolio</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color:azure;
-        }
-        header {
-            background-color: black;
-            color:aquamarine;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 0.5rem 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: dashed;
-            margin: 0 15px;
-            padding: 5px 10px;
-        }
-        nav a:hover{
-            background: #555;
-        }
-        .section{
-            margin: 20px auto;
-            max-width: 900px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0,1);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peyton Mou | AI Specialist & Data Analyst</title>
+    <meta name="description"
+        content="Portfolio of Peyton Mou, AI Specialist and Data Analyst specializing in deep learning and commercial data strategies.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Artificial Intelligence and Machine Learning</p>
-    </header>
-    <nav>
-        <a href='#About'>About Me</a>
-        <a href='#Academic'>Academic</a>
-        <a href='#Skills'>Skills</a>
-        <a href='#Projects'>Projects</a>
-        <a href='#Contact Me'>Contact Me</a>
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">PM.</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills & Certifications</a>
+                <a href="#experience">Experience</a>
+            </div>
+        </div>
     </nav>
-    
-    <div class='section' id='About'>
-        <h2>About Me</h2>
-        <p>Hello! I'm Peyton Mou, currently studying the Master of Applied Science in Artificial Intelligence in the University of Otago.</p>
-    </div>
 
-    <div class = 'section' id='Academic'>
-        <h2>Academic</h2>
-        <p>Core Courses: Advanced Artificial Intelligence, Python Programming for AI, Neural Networks, Computer Vision and Graphics, Information Retrieval, Machine Learning and Data Mining</p>
-    </div>
+    <header id="about" class="hero">
+        <div class="hero-content">
+            <div class="photo-container">
+                <img src="photo.jpg" alt="Peyton Mou" class="profile-photo" onerror="this.style.display='none';">
+                <div class="glow-effect"></div>
+            </div>
+            <div class="hero-text">
+                <h1><span class="highlight">Peyton Mou</span></h1>
+                <h3>Master of AI with Distinction, University of Otago</h3>
+                <p class="statement">AI & Data Science, Python, SQL, Power BI, Microsoft Azure, Foundry</p>
+                <div class="hero-links">
+                    <a href="mailto:peyton.mou2024@gmail.com" class="hero-btn">Email</a>
+                    <a href="https://github.com/peytonmou" target="_blank" class="hero-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/tong-mou-04aa6b337/" target="_blank"
+                        class="hero-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div class='section' id='Skills'>
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming: Python, HTML/CSS, SQL, R</li>
-            <li>Frameworks: TensorFlow, PyTorch, Keras, OpenCV</li>
-            <li>Cloud: Azure</li>
-        </ul>
-    </div>
+    <section id="projects" class="projects-section">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <div class="project-info">
+                <div class="project-category category-ai">🤖 AI & Deep Learning</div>
+                <h3>EEG-to-Text Decoding</h3>
+                <p>Data collection for a 64-channel EEG dataset across 12 participants. Signal preprocessing utilizing
+                    MNE-Python for artifact removal and feature scaling. Created decoding pipelines by adapting CNN
+                    (EEGNet), Transformer (NetTraST) and LLM (T5Translator), achieving a benchmark 27.05% test accuracy.
+                    Publication (under review): “OETD: Exposing Evaluation Pitfalls in EEG-to-Text Decoding with a
+                    Realistic Benchmark” <a href="https://github.com/peytonmou/Closed-Vocab-EEG-to-Text" target="_blank"
+                        style="color: var(--primary-color); text-decoration: none; font-weight: 600;">[GitHub]</a></p>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> Data Collection · Signal Processing · EEGNet · NetTraST · NiceEEG ·
+                    T5Translator
+                </div>
+            </div>
+            <div class="project-visuals">
+                <div class="project-slider" id="project1-slider">
+                    <div class="slides-track-container">
+                        <div class="slides-track">
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Pipeline Diagram</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Dataset Visualization</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Model Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev-arrow" aria-label="Previous slide">&#10094;</button>
+                    <button class="slider-arrow next-arrow" aria-label="Next slide">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class='section' id='Projects'>
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>SLAM Simulation:</strong>Implemented 2D SLAM for robot localization.</li>
-            <li><strong>CVAE Model:</strong>Generate reconstructed images through CNN deep learning.</li>
-        </ul>
-    </div>
+        <!-- Project 2 -->
+        <div class="project-card reverse">
+            <div class="project-info">
+                <h3>02. CNN Image Classification & Latent Diffusion Generation <a
+                        href="https://github.com/peytonmou/deep_learning" target="_blank"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; margin-left: 0.5rem;">[GitHub]</a>
+                </h3>
+                <p>Built a custom CNN using PyTorch on the Oxford Flowers dataset, achieving 85.1% accuracy for 10-class
+                    and 83.6% for 102-class classification.<br><br>Implemented a Latent Diffusion Model combining a
+                    Variational Autoencoder (VAE) and a UNet architecture to denoise and generate flower-like synthetic
+                    images. <a href="https://github.com/peytonmou/deep_learning" target="_blank"
+                        style="color: var(--primary-color); text-decoration: none; font-weight: 600;">[GitHub]</a></p>
+            </div>
+            <div class="project-visuals">
+                <div class="project-slider" id="project2-slider">
+                    <div class="slides-track-container">
+                        <div class="slides-track">
+                            <div class="slide">
+                                <img src="img_cnn.png" alt="CNN Classification Result" class="visual-img">
+                            </div>
+                            <div class="slide">
+                                <img src="unet.png" alt="U-Net Architecture" class="visual-img">
+                            </div>
+                            <div class="slide">
+                                <img src="img_cnn2.png" alt="CNN Training Curves" class="visual-img">
+                            </div>
+                            <div class="slide">
+                                <img src="vae.png" alt="VAE Latent Space Reconstruction" class="visual-img">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev-arrow" aria-label="Previous slide">&#10094;</button>
+                    <button class="slider-arrow next-arrow" aria-label="Next slide">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class='section' id='Contact Me'>
-        <h2>Contact Me</h2>
-        <p>Email: moupe847@student.otago.ac.nz</p>
-        <p>LinkedIn:<a href=''target='_blank'>linkedin.com/in/yourprofile</a></p>
-    </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="project-info">
+                <h3>03. Power BI Dashboard</h3>
+                <p>A comprehensive data visualization dashboard designed to extract commercial insights. It aggregates
+                    multi-source data, offering interactive visualizations and real-time analytics to drive business
+                    decisions.</p>
+            </div>
+            <div class="project-visuals">
+                <div class="project-slider" id="project3-slider">
+                    <div class="slides-track-container">
+                        <div class="slides-track">
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Power BI Dashboard - Commercial Sales Overview</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Power BI Dashboard - Livestream Conversion Analysis</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Power BI Dashboard - Customer Retention Analysis</span>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="visual-placeholder">
+                                    <span>Power BI Dashboard - Revenue Trends & Forecast</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev-arrow" aria-label="Previous slide">&#10094;</button>
+                    <button class="slider-arrow next-arrow" aria-label="Next slide">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-cert-section">
+        <div class="skills-vertical-container">
+            <h3>Skills & Certifications</h3>
+            <div class="skills-cert-container">
+                <ul class="compact-list">
+                    <li><strong>Programming Languages:</strong> Python, SQL, C++, HTML/CSS</li>
+                    <li><strong>Data Science:</strong> Power BI, NumPy, Pandas, Matplotlib</li>
+                    <li><strong>Machine Learning:</strong> Scikit-learn, Random Forest, SVM, XGBoost, KNN, PCA</li>
+                    <li><strong>Deep Learning & GenAI:</strong> PyTorch, TensorFlow, Transformers, CNNs, Latent
+                        Diffusion,
+                        CVAE</li>
+                    <li><strong>Computer Vision & Graphics:</strong> OpenCV, OpenGL</li>
+                    <li><strong>Cloud & Development tools:</strong>Microsoft Azure, Foundry, Git/GitHub</li>
+                    <li class="cert-item-compact">
+                        <ul>
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/2d01681a07846e01?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                                    target="_blank">Microsoft Certified: Power BI Data Analyst Associate (PL-300)</a> |
+                                Jun
+                                2026</li>
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/dffa6022018d6cec?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                                    target="_blank">Microsoft Certified: Azure Data Fundamentals (DP-900)</a> | May 2026
+                            </li>
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/59a83042102e8e04?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                                    target="_blank">Microsoft Certified: Azure AI Fundamentals (AI-900)</a> | May 2026
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <div class="experience-vertical-container">
+            <h3>Career Milestones</h3>
+            <div class="timeline">
+                <!-- Research Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4>Research Assistant</h4>
+                    <h5>University of Otago | Mar - May 2026</h5>
+                    <p>AI-solutions for wine authenticity and traceability, processing large-scale Near-Infrared
+                        (NIR) and Hyperspectral datasets. Engineered data pipelines using Pandas and NumPy to clean,
+                        normalize, and prepare multi-regional spectral data. Optimized feature extraction utilizing
+                        PCA.<br><br>Designed and deployed ML/DL models (PyTorch, CNN, SVM, Random Forest) to
+                        accurately classify wine types, achieving f1-scores up to <strong>89.33%</strong>.
+                        Translated technical metrics into clear data insights to support stakeholders.</p>
+                </div>
+                <!-- Education (Master of AI) placed after Research Assistant and before Commercial Project Manager -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4>Master of Applied Science (Distinction) in AI</h4>
+                    <h5>University of Otago | Jul 2024 - Dec 2025</h5>
+                    <p><strong>GPA:</strong> 7.7 / 9<br><strong>Coursework:</strong> Advanced AI, Deep Learning,
+                        Machine Learning & Data Mining, Computer Vision & Graphics, Information Retrieval,
+                        Programming for AI, When Machines Decide</p>
+                </div>
+                <!-- Commercial Project Manager -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4>Commercial Project Manager</h4>
+                    <h5>ByteDance | Dec 2020 - Aug 2023</h5>
+                    <p>Managed high-value (RMB 10M+) commercial advertising projects for flagship automotive
+                        accounts on Dongchedi. Performance analysis on customer conversion and livestream
+                        performance to optimize platform delivery strategy. Cross-functional coordination across IT,
+                        UI/UX, and data operations, streamlining data pipelines and boosting efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Peyton Mou. All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>© 2026 Peyton Mou. All rights reserved.</p>
+        </div>
     </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
-   
-
-
-
-
