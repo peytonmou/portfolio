@@ -4,13 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peyton Mou | AI Specialist & Data Analyst</title>
+    <title>Tong Mou (Peyton) | AI Specialist & Data Analyst</title>
     <meta name="description"
         content="Portfolio of Peyton Mou, AI Specialist and Data Analyst specializing in deep learning and commercial data strategies.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Two-column layout for projects 5 & 6 */
+        .projects-dual-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-dual-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-dual-col .project-category {
+            margin-bottom: 1rem !important;
+        }
+
+        .project-card-text {
+            background: var(--card-bg, rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .project-card-text h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-color, #fff);
+            margin: 0;
+        }
+
+        .project-card-text p {
+            color: var(--text-secondary, rgba(255, 255, 255, 0.75));
+            line-height: 1.7;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .project-card-text .tech-stack {
+            font-size: 0.88rem;
+            color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        /* ── Mute/Unmute toggle button ── */
+        .video-unmute-btn {
+            position: absolute;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 10px;
+            padding: 0.6rem 1.1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+            transition: background 0.2s, transform 0.1s;
+            min-width: 160px;
+            text-align: center;
+            user-select: none;
+        }
+
+        .video-unmute-btn:hover {
+            background: rgba(0, 0, 0, 0.88);
+            transform: scale(1.04);
+        }
+
+        /* Lightbox navigation arrows */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            backdrop-filter: blur(4px);
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-nav.prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-nav.next {
+            right: 1.5rem;
+        }
+
+        .lightbox-nav:disabled {
+            opacity: 0.25;
+            cursor: default;
+        }
+
+        /* Lightbox image counter */
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ── Timeline logo ── */
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 3px;
+            flex-shrink: 0;
+        }
+
+        .timeline-header-text h4 {
+            margin: 0;
+        }
+
+        .timeline-header-text h5 {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .projects-dual-row {
+                grid-template-columns: 1fr;
+                padding: 0 1rem 1rem;
+            }
+
+            .lightbox-nav {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+
+            .lightbox-nav.prev {
+                left: 0.5rem;
+            }
+
+            .lightbox-nav.next {
+                right: 0.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -18,48 +195,89 @@
         <div class="nav-content">
             <div class="logo">PM.</div>
             <div class="nav-links">
-                <a href="#projects">Projects</a>
+                <div class="dropdown">
+                    <a href="#projects" class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="#project1">Deep Learning</a>
+                        <a href="#project3">Data Science</a>
+                        <a href="#project4">Machine Learning</a>
+                        <a href="#project5">Generative AI</a>
+                        <a href="#project6">Information Retrieval</a>
+                    </div>
+                </div>
                 <a href="#skills">Skills & Certifications</a>
                 <a href="#experience">Experience</a>
             </div>
         </div>
     </nav>
 
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+        <button class="lightbox-nav prev" id="lightboxPrev" onclick="lightboxNav(-1, event)">&#10094;</button>
+        <img id="lightbox-img" src="" alt="Full size image">
+        <button class="lightbox-nav next" id="lightboxNext" onclick="lightboxNav(1, event)">&#10095;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
     <header id="about" class="hero">
         <div class="hero-content">
-            <div class="photo-container">
-                <img src="photo.jpg" alt="Peyton Mou" class="profile-photo" onerror="this.style.display='none';">
-                <div class="glow-effect"></div>
-            </div>
-            <div class="hero-text">
-                <h1><span class="highlight">Peyton Mou</span></h1>
-                <h3>Master of AI with Distinction, University of Otago</h3>
-                <p class="statement">AI & Data Science, Python, SQL, Power BI, Microsoft Azure, Foundry</p>
-                <div class="hero-links">
-                    <a href="mailto:peyton.mou2024@gmail.com" class="hero-btn">Email</a>
-                    <a href="https://github.com/peytonmou" target="_blank" class="hero-btn">GitHub</a>
-                    <a href="https://www.linkedin.com/in/tong-mou-04aa6b337/" target="_blank"
-                        class="hero-btn">LinkedIn</a>
+            <div class="hero-center-wrapper">
+                <div class="hero-video-container">
+                    <div class="hero-info-row">
+                        <div class="photo-container">
+                            <img src="photo.jpg" alt="Peyton Mou" class="profile-photo"
+                                onerror="this.style.display='none';">
+                            <div class="glow-effect"></div>
+                        </div>
+                        <div class="hero-text-block">
+                            <h1><span class="highlight">Tong Mou (Peyton)</span></h1>
+                            <p class="hero-email-line">peyton.mou2024@gmail.com</p>
+                            <div class="hero-links">
+                                <a href="https://github.com/peytonmou" target="_blank" class="hero-btn">GitHub</a>
+                                <a href="https://www.linkedin.com/in/tong-mou-04aa6b337/" target="_blank"
+                                    class="hero-btn">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video: autoplay unmuted (falls back to muted), toggle button stays visible -->
+                    <div class="hero-video-frame">
+                        <video class="hero-video" id="heroVideo" autoplay playsinline>
+                            <source src="self-intro.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-glow"></div>
+                        <!-- Persistent mute/unmute toggle button -->
+                        <button class="video-unmute-btn" id="muteToggleBtn" aria-label="Toggle mute">
+                            🔇 Tap to Unmute
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+
     <section id="projects" class="projects-section">
         <!-- Project 1 -->
+        <div id="project1" class="project-category category-dl">&#129504; Deep Learning</div>
         <div class="project-card">
             <div class="project-info">
-                <div class="project-category category-ai">🤖 AI & Deep Learning</div>
-                <h3>EEG-to-Text Decoding</h3>
-                <p>Data collection for a 64-channel EEG dataset across 12 participants. Signal preprocessing utilizing
-                    MNE-Python for artifact removal and feature scaling. Created decoding pipelines by adapting CNN
-                    (EEGNet), Transformer (NetTraST) and LLM (T5Translator), achieving a benchmark 27.05% test accuracy.
-                    Publication (under review): “OETD: Exposing Evaluation Pitfalls in EEG-to-Text Decoding with a
-                    Realistic Benchmark” <a href="https://github.com/peytonmou/Closed-Vocab-EEG-to-Text" target="_blank"
-                        style="color: var(--primary-color); text-decoration: none; font-weight: 600;">[GitHub]</a></p>
+                <h3>EEG-to-Text <a href="https://github.com/peytonmou/Closed-Vocab-EEG-to-Text" target="_blank"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; margin-left: 0.5rem;">[GitHub]</a>
+                </h3>
+                <p> OETD: A new EEG (brain signal) dataset with 9200 samples collected from 12 subjects. A comprehensive
+                    evaluation across CNN / Transformer / Contrastive Learning / LLM, achieving <strong
+                        style="color: var(--primary-color);">27.05%</strong> test accuracy on 10-class
+                    EEG-to-Text decoding task.
+                    <br><br>
+                    <u>Publication submited to IEEE ICDM 2026 and under review:</u> <br>
+                    <em>"OETD: Exposing Evaluation Pitfalls
+                        in EEG-to-Text Decoding with a
+                        Realistic Benchmark"</em>
+                </p>
                 <div class="tech-stack">
-                    <strong>Tech Stack:</strong> Data Collection · Signal Processing · EEGNet · NetTraST · NiceEEG ·
-                    T5Translator
+                    <strong>Tech Stack:</strong> Python · PyTorch · MNE · EEGNet(CNN) · NetTraST(Transformer) ·
+                    NiceEEG(Contrastive Learning) · T5Translator(LLM)
                 </div>
             </div>
             <div class="project-visuals">
@@ -67,19 +285,28 @@
                     <div class="slides-track-container">
                         <div class="slides-track">
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Pipeline Diagram</span>
-                                </div>
+                                <img src="eeg-is-classwise_audio.png" alt="EEG Classwise Audio"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Dataset Visualization</span>
-                                </div>
+                                <img src="eeg-datasets.png" alt="EEG Datasets" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Model Architecture</span>
-                                </div>
+                                <img src="eeg-results.png" alt="EEG Results" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="eeg-NetTraST.png" alt="EEG NetTraST" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="eeg-topomap.png" alt="EEG Topomap" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="eeg-experiment.png" alt="EEG Experiment" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
                             </div>
                         </div>
                     </div>
@@ -87,6 +314,9 @@
                     <button class="slider-arrow next-arrow" aria-label="Next slide">&#10095;</button>
                     <div class="slider-dots">
                         <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
                         <span class="dot"></span>
                         <span class="dot"></span>
                     </div>
@@ -97,31 +327,41 @@
         <!-- Project 2 -->
         <div class="project-card reverse">
             <div class="project-info">
-                <h3>02. CNN Image Classification & Latent Diffusion Generation <a
-                        href="https://github.com/peytonmou/deep_learning" target="_blank"
+                <h3>Image Classifier &amp; Diffusion <a href="https://github.com/peytonmou/deep_learning"
+                        target="_blank"
                         style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; margin-left: 0.5rem;">[GitHub]</a>
                 </h3>
-                <p>Built a custom CNN using PyTorch on the Oxford Flowers dataset, achieving 85.1% accuracy for 10-class
-                    and 83.6% for 102-class classification.<br><br>Implemented a Latent Diffusion Model combining a
-                    Variational Autoencoder (VAE) and a UNet architecture to denoise and generate flower-like synthetic
-                    images. <a href="https://github.com/peytonmou/deep_learning" target="_blank"
-                        style="color: var(--primary-color); text-decoration: none; font-weight: 600;">[GitHub]</a></p>
+                <p>A PyTorch-based CNN trained on the Oxford Flower dataset. Increased accuracy from baseline 60% to
+                    <strong style="color: var(--primary-color);">85.13%</strong> on
+                    the 10-class dataset and <strong style="color: var(--primary-color);">83.63%</strong> on the
+                    102-class dataset.
+                    <br><br>A latent diffusion pipeline including a U-Net denoising model and a variational autoencoder
+                    to
+                    generate flower-like images from pure random noise over 10 iterative denoising steps.
+                </p>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> Python · PyTorch · CNN · VAE · UNet · Latent Diffusion
+                </div>
             </div>
             <div class="project-visuals">
                 <div class="project-slider" id="project2-slider">
                     <div class="slides-track-container">
                         <div class="slides-track">
                             <div class="slide">
-                                <img src="img_cnn.png" alt="CNN Classification Result" class="visual-img">
+                                <img src="unet.png" alt="U-Net Architecture" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <img src="unet.png" alt="U-Net Architecture" class="visual-img">
+                                <img src="img_cnn.png" alt="CNN Classification Result"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <img src="img_cnn2.png" alt="CNN Training Curves" class="visual-img">
+                                <img src="img_cnn2.png" alt="CNN Training Curves" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <img src="vae.png" alt="VAE Latent Space Reconstruction" class="visual-img">
+                                <img src="vae.png" alt="VAE Latent Space Reconstruction"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                         </div>
                     </div>
@@ -138,36 +378,45 @@
         </div>
 
         <!-- Project 3 -->
+        <div id="project3" class="project-category category-data">&#128202; Data Science</div>
         <div class="project-card">
             <div class="project-info">
-                <h3>03. Power BI Dashboard</h3>
-                <p>A comprehensive data visualization dashboard designed to extract commercial insights. It aggregates
-                    multi-source data, offering interactive visualizations and real-time analytics to drive business
-                    decisions.</p>
+                <h3>Adventure Works BI Report</h3>
+                <p>Built an interactive Power BI report/dashboard using Adventure Works global sales data (FY2018–2022),
+                    transforming multi-source data into actionable insights through data modeling, DAX measures, and
+                    dynamic visualizations for sales and performance analysis.
+                </p>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> Power BI · SQL · DAX · Power Query · Semantic Model
+                </div>
             </div>
             <div class="project-visuals">
                 <div class="project-slider" id="project3-slider">
                     <div class="slides-track-container">
                         <div class="slides-track">
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Power BI Dashboard - Commercial Sales Overview</span>
-                                </div>
+                                <img src="pbi-report-overview.png" alt="Power BI Report Overview"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Power BI Dashboard - Livestream Conversion Analysis</span>
-                                </div>
+                                <img src="pbi-semantic-model.png" alt="Power BI Semantic Model"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Power BI Dashboard - Customer Retention Analysis</span>
-                                </div>
+                                <img src="pbi-report-drillthrough-matrix.png" alt="Power BI Drillthrough Matrix"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                             <div class="slide">
-                                <div class="visual-placeholder">
-                                    <span>Power BI Dashboard - Revenue Trends & Forecast</span>
-                                </div>
+                                <img src="pbi-report-bookmark.png" alt="Power BI Bookmark"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="pbi-report-scatter-chart.png" alt="Power BI Scatter Chart"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="pbi-report-conditional-formatting.png" alt="Power BI Conditional Formatting"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
                             </div>
                         </div>
                     </div>
@@ -178,35 +427,120 @@
                         <span class="dot"></span>
                         <span class="dot"></span>
                         <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project 4 -->
+        <div id="project4" class="project-category category-ml">&#128300; Machine Learning</div>
+        <div class="project-card reverse">
+            <div class="project-info">
+                <h3>Wine Traceability <a href="https://github.com/peytonmou/Wine" target="_blank"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; margin-left: 0.5rem;">[GitHub]</a>
+                </h3>
+                <p>Predict wine location based on NIR (near-infrared) and hyperspectral data through the bottle. Machine
+                    learning models
+                    (Logistic Regression, KNN,SVM, Random Forest, XGBOOST)
+                    and CNNs to classify wine
+                    types/regions/producers,
+                    achieving f1-scores <strong style="color: var(--primary-color);">89.33%</strong> on 5-class region
+                    and <strong style="color: var(--primary-color);">100%</strong> on 3-class liquid type
+                    classification.</p>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> PCA · Scikit-learn · SVM · Random Forest · XGBOOST · CNN
+                </div>
+            </div>
+            <div class="project-visuals">
+                <div class="project-slider" id="project4-slider">
+                    <div class="slides-track-container">
+                        <div class="slides-track">
+                            <div class="slide">
+                                <img src="wine-region-pca.png" alt="Wine Region PCA" class="visual-img lightbox-trigger"
+                                    onclick="openLightbox(this)">
+                            </div>
+                            <div class="slide">
+                                <img src="wine-liquidtype-pca.png" alt="Wine Liquid Type PCA"
+                                    class="visual-img lightbox-trigger" onclick="openLightbox(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev-arrow" aria-label="Previous slide">&#10094;</button>
+                    <button class="slider-arrow next-arrow" aria-label="Next slide">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects 5 & 6 — two-column text-only row with individual subtitles -->
+        <div class="projects-dual-row">
+            <!-- Project 5 -->
+            <div class="project-dual-col">
+                <div id="project5" class="project-category category-genai" style="margin:0 0 0 0;">&#10024; Generative
+                    AI</div>
+                <div id="project5-card" class="project-card-text">
+                    <h3>Gemini AI PDF Reader <a href="https://github.com/peytonmou/GenAI" target="_blank"
+                            style="color: var(--primary-color); text-decoration: none; font-size: 1rem; font-weight: 600; margin-left: 0.4rem;">[GitHub]</a>
+                    </h3>
+                    <p>An interactive document Q&amp;A application utilizing the Gemini 2.0 Flash API to parse
+                        and
+                        query PDF files. Built a responsive front-end interface using Gradio to deliver seamless user
+                        interactions.</p>
+                    <div class="tech-stack">
+                        <strong>Tech Stack:</strong> API Integration · Gemini 2.0 Flash · Gradio
+                    </div>
+                </div>
+            </div><!-- end project-dual-col -->
+
+            <!-- Project 6 -->
+            <div class="project-dual-col">
+                <!-- FIX: match same class pattern as other category labels so shadow/bg styling applies -->
+                <div id="project6" class="project-category category-genai" style="margin:0 0 0 0;">&#128269;
+                    Information Retrieval
+                </div>
+                <div id="project6" class="project-card-text">
+                    <h3>Web Search Engine <a href="https://github.com/peytonmou/search_engine" target="_blank"
+                            style="color: var(--primary-color); text-decoration: none; font-size: 1rem; font-weight: 600; margin-left: 0.4rem;">[GitHub]</a>
+                    </h3>
+                    <p>A keyword search engine featuring an inverted index mapped over a corpus of 173,000
+                        documents. Integrated RocksDB storage utilizing Log-Structured Merge (LSM) trees for optimized
+                        write performance and key-value lookups.</p>
+                    <div class="tech-stack">
+                        <strong>Tech Stack:</strong> Parsing· Inverted Index · RocksDB
+                    </div>
+                </div>
+            </div><!-- end project-dual-col -->
+        </div><!-- end projects-dual-row -->
+
     </section>
 
     <section id="skills" class="skills-cert-section">
         <div class="skills-vertical-container">
-            <h3>Skills & Certifications</h3>
+            <h3>Skills &amp; Certifications</h3>
             <div class="skills-cert-container">
                 <ul class="compact-list">
-                    <li><strong>Programming Languages:</strong> Python, SQL, C++, HTML/CSS</li>
-                    <li><strong>Data Science:</strong> Power BI, NumPy, Pandas, Matplotlib</li>
+                    <li><strong>Programming Languages:</strong> Python, SQL, HTML/CSS, JavaScript</li>
+                    <li><strong>Data Science:</strong> Power BI & DAX, NumPy, Pandas, Matplotlib</li>
                     <li><strong>Machine Learning:</strong> Scikit-learn, Random Forest, SVM, XGBoost, KNN, PCA</li>
-                    <li><strong>Deep Learning & GenAI:</strong> PyTorch, TensorFlow, Transformers, CNNs, Latent
-                        Diffusion,
-                        CVAE</li>
-                    <li><strong>Computer Vision & Graphics:</strong> OpenCV, OpenGL</li>
-                    <li><strong>Cloud & Development tools:</strong>Microsoft Azure, Foundry, Git/GitHub</li>
+                    <li><strong>Deep Learning &amp; GenAI:</strong> PyTorch, TensorFlow, Transformers, CNNs, Latent
+                        Diffusion, CVAE</li>
+                    <li><strong>Computer Vision &amp; Graphics:</strong> OpenCV, OpenGL</li>
+                    <li><strong>Cloud &amp; Development tools:</strong> Microsoft Azure, Azure AI Foundry, Git/GitHub
+                    </li>
                     <li class="cert-item-compact">
                         <ul>
-                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/2d01681a07846e01?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/2d01681a07846e01"
                                     target="_blank">Microsoft Certified: Power BI Data Analyst Associate (PL-300)</a> |
-                                Jun
-                                2026</li>
-                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/dffa6022018d6cec?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                                Jun 2026</li>
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/dffa6022018d6cec"
                                     target="_blank">Microsoft Certified: Azure Data Fundamentals (DP-900)</a> | May 2026
                             </li>
-                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/59a83042102e8e04?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+                            <li><a href="https://learn.microsoft.com/en-us/users/tongmou-7742/credentials/59a83042102e8e04"
                                     target="_blank">Microsoft Certified: Azure AI Fundamentals (AI-900)</a> | May 2026
                             </li>
                         </ul>
@@ -220,47 +554,173 @@
         <div class="experience-vertical-container">
             <h3>Career Milestones</h3>
             <div class="timeline">
-                <!-- Research Assistant -->
+
+                <!-- Research Assistant (University of Otago) -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <h4>Research Assistant</h4>
-                    <h5>University of Otago | Mar - May 2026</h5>
-                    <p>AI-solutions for wine authenticity and traceability, processing large-scale Near-Infrared
-                        (NIR) and Hyperspectral datasets. Engineered data pipelines using Pandas and NumPy to clean,
-                        normalize, and prepare multi-regional spectral data. Optimized feature extraction utilizing
-                        PCA.<br><br>Designed and deployed ML/DL models (PyTorch, CNN, SVM, Random Forest) to
-                        accurately classify wine types, achieving f1-scores up to <strong>89.33%</strong>.
-                        Translated technical metrics into clear data insights to support stakeholders.</p>
+                    <div class="timeline-header">
+                        <img src="university_of_otago_logo.jpg" alt="University of Otago logo" class="timeline-logo"
+                            onerror="this.style.display='none';">
+                        <h5 style="margin:0;">University of Otago | Mar - May 2026</h5>
+                    </div>
+                    <p>AI-solutions for wine authenticity and traceability: Cleaning, combination and
+                        transformation, PCA for near-infrared and hyperspectral wine data; ML/DL model development and
+                        evaluation.</p>
                 </div>
-                <!-- Education (Master of AI) placed after Research Assistant and before Commercial Project Manager -->
+
+                <!-- Master's degree (University of Otago) -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <h4>Master of Applied Science (Distinction) in AI</h4>
-                    <h5>University of Otago | Jul 2024 - Dec 2025</h5>
+                    <h4>Master of Applied Science (Distinction) in Artificial Intelligence</h4>
+                    <div class="timeline-header">
+                        <img src="university_of_otago_logo.jpg" alt="University of Otago logo" class="timeline-logo"
+                            onerror="this.style.display='none';">
+                        <h5 style="margin:0;">University of Otago | Jul 2024 - May 2026</h5>
+                    </div>
                     <p><strong>GPA:</strong> 7.7 / 9<br><strong>Coursework:</strong> Advanced AI, Deep Learning,
-                        Machine Learning & Data Mining, Computer Vision & Graphics, Information Retrieval,
+                        Machine Learning &amp; Data Mining, Computer Vision &amp; Graphics, Information Retrieval,
                         Programming for AI, When Machines Decide</p>
                 </div>
-                <!-- Commercial Project Manager -->
+
+                <!-- ByteDance -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <h4>Commercial Project Manager</h4>
-                    <h5>ByteDance | Dec 2020 - Aug 2023</h5>
-                    <p>Managed high-value (RMB 10M+) commercial advertising projects for flagship automotive
-                        accounts on Dongchedi. Performance analysis on customer conversion and livestream
-                        performance to optimize platform delivery strategy. Cross-functional coordination across IT,
-                        UI/UX, and data operations, streamlining data pipelines and boosting efficiency.</p>
+                    <div class="timeline-header">
+                        <img src="bytedance_logo.jpg" alt="ByteDance logo" class="timeline-logo"
+                            onerror="this.style.display='none';">
+                        <h5 style="margin:0;">ByteDance | Dec 2020 - Aug 2023</h5>
+                    </div>
+                    <p>Managed high-value commercial advertising projects for automotive clients on <a
+                            href="https://www.dongchedi.com/" target="_blank">Dongchedi</a>. Cross-functional
+                        coordination across media, sales, technology,
+                        UI/UX, creative production and platform operations.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>© 2026 Peyton Mou. All rights reserved.</p>
+            <p>&copy; 2026 Tong Mou (Peyton)</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
+    <script>
+        // ── Video: try unmuted autoplay, fall back to muted; persistent toggle button ──
+        (function () {
+            const video = document.getElementById('heroVideo');
+            const toggleBtn = document.getElementById('muteToggleBtn');
+
+            function updateToggleLabel() {
+                if (!toggleBtn) return;
+                toggleBtn.textContent = video.muted ? '🔇 Tap to Unmute' : '🔊 Tap to Mute';
+            }
+
+            // Try unmuted first; fall back to muted
+            video.muted = false;
+            video.play().catch(() => {
+                video.muted = true;
+                video.play().catch(() => { });
+            });
+
+            // Keep label in sync whenever mute state changes
+            video.addEventListener('volumechange', updateToggleLabel);
+            video.addEventListener('play', updateToggleLabel);
+            updateToggleLabel();
+
+            // Toggle mute/unmute on button click
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (video.ended) {
+                        // If video ended, replay unmuted
+                        video.muted = false;
+                        video.currentTime = 0;
+                        video.play();
+                    } else {
+                        video.muted = !video.muted;
+                    }
+                    updateToggleLabel();
+                });
+            }
+
+            // When video ends, change toggle button label to Replay
+            video.addEventListener('ended', function () {
+                if (toggleBtn) {
+                    toggleBtn.textContent = '▶ Replay';
+                }
+            });
+
+        })();
+
+        // ── Lightbox with slider navigation ──────────────────────────────────
+        let _lbImages = [];
+        let _lbCurrent = 0;
+
+        function buildLightboxIndex() {
+            _lbImages = [];
+            document.querySelectorAll('.project-slider').forEach(function (slider) {
+                const imgs = slider.querySelectorAll('.visual-img.lightbox-trigger');
+                imgs.forEach(function (img, i) {
+                    _lbImages.push({ src: img.src, alt: img.alt, slider: slider, localIdx: i });
+                    img.dataset.lbIdx = _lbImages.length - 1;
+                });
+            });
+        }
+
+        function openLightbox(img) {
+            buildLightboxIndex();
+            const idx = parseInt(img.dataset.lbIdx, 10);
+            _lbCurrent = isNaN(idx) ? 0 : idx;
+            showLightboxAt(_lbCurrent);
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showLightboxAt(idx) {
+            if (!_lbImages.length) return;
+            idx = Math.max(0, Math.min(idx, _lbImages.length - 1));
+            _lbCurrent = idx;
+            const entry = _lbImages[idx];
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = entry.src;
+            lightboxImg.alt = entry.alt;
+
+            const counter = document.getElementById('lightboxCounter');
+            if (counter) counter.textContent = (idx + 1) + ' / ' + _lbImages.length;
+
+            const prev = document.getElementById('lightboxPrev');
+            const next = document.getElementById('lightboxNext');
+            if (prev) prev.disabled = idx === 0;
+            if (next) next.disabled = idx === _lbImages.length - 1;
+        }
+
+        function lightboxNav(dir, e) {
+            if (e) e.stopPropagation();
+            showLightboxAt(_lbCurrent + dir);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function (e) {
+            const lb = document.getElementById('lightbox');
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showLightboxAt(_lbCurrent - 1);
+            if (e.key === 'ArrowRight') showLightboxAt(_lbCurrent + 1);
+        });
+
+        document.getElementById('lightbox-img').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 
 </html>

@@ -48,6 +48,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Hero video: autoplay once, then show replay button
+    const heroVideo = document.getElementById('heroVideo');
+    const replayBtn = document.getElementById('replayBtn');
+
+    if (heroVideo && replayBtn) {
+        // When video finishes, show the replay button
+        heroVideo.addEventListener('ended', () => {
+            replayBtn.style.display = 'block';
+        });
+
+        // When replay button is clicked, restart the video
+        replayBtn.addEventListener('click', () => {
+            replayBtn.style.display = 'none';
+            heroVideo.currentTime = 0;
+            heroVideo.play();
+        });
+    }
+
     // Initialize project sliders (carousels)
     const sliders = document.querySelectorAll('.project-slider');
     sliders.forEach(slider => {
@@ -87,3 +105,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
